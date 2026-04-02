@@ -37,13 +37,13 @@
         </dl>
         <div>
             <a href="@($"/books/edit?id={book.Id}")">Edit</a> |
-            <a href="@($"/books")">Back to List</a>
+            <a href="@($"/")">Back to List</a>
         </div>
     }
 </div>
 
 @code {
-    private Book? book;
+    private Book book;
 
     [SupplyParameterFromQuery]
     private int Id { get; set; }
