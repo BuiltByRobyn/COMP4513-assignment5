@@ -22,6 +22,8 @@
     </dl>
     <p>Total: $@Order.GetTotal()</p>
     <button class="btn btn-warning" @onclick="PlaceOrder">Place Order</button>
+} else {
+    <p class="mt-4 text-muted">You have no items in your cart. </p>
 }
 
 @code {
@@ -39,7 +41,7 @@
         context.Orders.Attach(Order);
         await context.SaveChangesAsync();
 
-        NavigationManager.NavigateTo("/");
+        NavigationManager.NavigateTo("/myorders");
     }
 
     public async ValueTask DisposeAsync() => await context.DisposeAsync();  
