@@ -1,6 +1,7 @@
 @page "/myorders"
 @implements IAsyncDisposable
 @using Microsoft.EntityFrameworkCore
+@using System.Globalization
 @inject IDbContextFactory<BookstoreDb> DbContextFactory
 @rendermode InteractiveServer
 
@@ -41,15 +42,15 @@ else
                             <tr>
                                 <td>@item.Book.Title</td>
                                 <td>@item.Quantity</td>
-                                <td>@item.Book.Price.ToString("C")</td>
-                                <td>@item.GetTotal().ToString("C")</td>
+                                <td>@item.Book.Price.ToString("C", CultureInfo.GetCultureInfo("en-US"))</td>
+                                <td>@item.GetTotal().ToString("C", CultureInfo.GetCultureInfo("en-US"))</td>
                             </tr>
                         }
                     </tbody>
                 </table>
             </div>
             <div class="card-footer text-end fw-bold">
-                Total: @order.GetTotal().ToString("C")
+                Total: @order.GetTotal().ToString("C", CultureInfo.GetCultureInfo("en-US"))
             </div>
         </div>
     }

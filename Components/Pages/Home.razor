@@ -95,7 +95,7 @@
     };
 
     private int currentPage { get; set; } = 1;
-    private int pageSize = 4;
+    private int pageSize = 3;
     private int totalPages => (int)Math.Ceiling((double)sorted.Count() / pageSize);
     private IEnumerable<Book> paged => sorted.Skip((currentPage - 1) * pageSize).Take(pageSize);
 
